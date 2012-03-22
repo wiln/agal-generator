@@ -5,7 +5,7 @@ Example:
 
 float44 view : vc0
 
-float44 model : vc
+float44 model : vc1
 
 float44 proj : vc2
 
@@ -52,7 +52,7 @@ generated code :
 
 vertex shader:
 
-move v0, va1
+mov v0, va1
 
 mul vt1,va0,vc1
 
@@ -60,7 +60,7 @@ mul vt0,vt1,vc0
 
 mul op,vt0,vc2
 
-move v1, va2
+mov v1, va2
 
 
 fragment shader:
