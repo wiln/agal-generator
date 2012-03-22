@@ -1,0 +1,26 @@
+float44 view : vc0
+float44 model : vc1
+float44 proj : vc2
+
+float4 position : va0
+float4 vertexColor : va1
+float4 texcoord : va2
+
+float4 fragmentColor : v0
+float4 fragTexCoord : v1
+
+void tex1 : fs0(mipmap, mirror)
+
+void vertexMain()
+{
+  fragmentColor = vertexColor
+  op = mul(mul(mul(position, model), view), proj)
+  fragTexCoord = texcoord
+}
+
+
+void fragmentMain()
+{
+  oc = fragmentColor + tex2d(fragTexCoord, tex1)
+  kil(oc)
+}
